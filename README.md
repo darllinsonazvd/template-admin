@@ -34,11 +34,11 @@ Bibliotecas
 
 Aplicação com intuito de fazer a administração de uma empresa, desenvolvida utilizando ReactJS e Next.js.
 
-[X] Responsividade em dispositivos pequenos, médios e grandes.
-[X] Desenvolvida seguindo o conceito Mobile First.
-[X] Integração e autenticação com o Google Firebase.
-[X] Dark mode e Light mode.
-[X] Estilização com o Tailwind CSS.
+[x] Responsividade em dispositivos pequenos, médios e grandes.
+[x] Desenvolvida seguindo o conceito Mobile First.
+[x] Integração e autenticação com o Google Firebase.
+[x] Dark mode e Light mode.
+[x] Estilização com o Tailwind CSS.
 
 Você pode visitar a aplicação [clicando aqui](/)
 
