@@ -1,8 +1,12 @@
 import { useState } from 'react'
-import AuthInput from '../components/auth/AuthInput'
+import Head from 'next/head'
 import { WarningIcon } from '../components/icons'
+import AuthInput from '../components/auth/AuthInput'
+import useAuth from '../data/hook/useAuth'
 
 export default function Auth() {
+  const { register, login, googleLogin } = useAuth()
+
   const [error, setError] = useState(null)
   const [mode, setMode] = useState<'login' | 'register'>('login')
   const [email, setEmail] = useState('')
@@ -13,18 +17,41 @@ export default function Auth() {
     setTimeout(() => setError(null), timeInSeconds * 1000)
   }
 
-  function submit() {
-    if (mode === 'login') {
-      console.log('login feito')
-      showError('Ocorreu um erro no login')
-    } else {
-      console.log('cadastro feito')
-      showError('Ocorreu um erro no cadastro')
+  async function submit() {
+    try {
+      if (mode === 'login') {
+        await login(email, password)
+      } else {
+        await register(email, password)
+      }
+    } catch (e) {
+      console.log(e.message)
+
+      if (e?.message === 'Firebase: Error (auth/user-not-found).') {
+        showError('Usuário não encontrado, faça seu cadastro na plataforma!')
+      } else if (e?.message === 'Firebase: Error (auth/wrong-password).') {
+        showError('Credenciais incorretas!')
+      } else if (e?.message === 'Firebase: Error (auth/invalid-email).') {
+        showError('E-mail inválido!')
+      } else if (
+        e?.message ===
+        'Firebase: Password should be at least 6 characters (auth/weak-password).'
+      ) {
+        showError('Sua senha precisa ter no mínimo 6 caracteres!')
+      } else {
+        showError('Ocorreu um erro inesperado')
+      }
     }
   }
 
   return (
     <div className="flex h-screen items-center justify-center">
+      <Head>
+        <title>Entrar no sistema</title>
+        <meta name="auth" content="Authentication" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <div className="hidden md:block md:w-1/2 lg:w-2/3">
         <img
           src="https://source.unsplash.com/Nyvq2juw4_o"
@@ -35,13 +62,13 @@ export default function Auth() {
       <div className="m-10 w-full md:w-1/2 lg:w-1/3">
         <h1 className="text-2xl md:text-3xl font-bold mb-5 ">
           {mode === 'login'
-            ? 'Entre com a sua conta'
+            ? 'Faça seu login na plataforma'
             : 'Cadastre-se da plataforma'}
         </h1>
 
         {error ? (
           <div className="flex items-center bg-red-400 text-white py-3 px-5 my-2 rounded-lg">
-            {WarningIcon} <span className="ml-1">{error}</span>
+            {WarningIcon} <span className="ml-2">{error}</span>
           </div>
         ) : (
           false
@@ -72,10 +99,10 @@ export default function Auth() {
         <hr className="my-6 border-gray-300 w-full" />
 
         <button
-          onClick={submit}
+          onClick={googleLogin}
           className="w-full bg-red-500 hover:bg-red-400 text-white rounded-lg px-4 py-3"
         >
-          Entrar com Google
+          Entrar com Google (recomendado)
         </button>
 
         {mode === 'login' ? (
