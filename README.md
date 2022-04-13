@@ -6,9 +6,9 @@
 </p>
 
 <p align="center">
- <img src="https://img.shields.io/static/v1?label=PRs&message=welcome!&color=5c00de&labelColor=000000%22%20alt=%22PRs%20welcome!" />
+ <img src="https://img.shields.io/static/v1?label=PRs&message=welcome!&color=294dc4&labelColor=000000%22%20alt=%22PRs%20welcome!" />
 
-  <img alt="License" src="https://img.shields.io/static/v1?label=license&message=MIT&color=f0ea37&labelColor=000000">
+  <img alt="License" src="https://img.shields.io/static/v1?label=license&message=MIT&color=294dc4&labelColor=000000">
 </p>
 
 <br>
