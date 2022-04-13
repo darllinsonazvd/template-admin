@@ -34,7 +34,7 @@ Bibliotecas
 
 Aplicação com intuito de fazer a administração de uma empresa, desenvolvida utilizando ReactJS e Next.js.
 
-[x] Responsividade em dispositivos pequenos, médios e grandes.
+[x] Responsividade em dispositivos pequenos, médios e grandes. /n
 [x] Desenvolvida seguindo o conceito Mobile First.
 [x] Integração e autenticação com o Google Firebase.
 [x] Dark mode e Light mode.
