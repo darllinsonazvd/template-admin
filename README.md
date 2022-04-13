@@ -44,8 +44,6 @@ Aplicação com intuito de fazer a administração de uma empresa, desenvolvida 
 <br />
 [x] Estilização com o Tailwind CSS.
 
-Você pode visitar a aplicação [clicando aqui](/)
-
 ## 📝 Licença
 
 Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](.github/LICENSE.md) para mais detalhes.
