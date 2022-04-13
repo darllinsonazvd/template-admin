@@ -25,8 +25,6 @@ export default function Auth() {
         await register(email, password)
       }
     } catch (e) {
-      console.log(e.message)
-
       if (e?.message === 'Firebase: Error (auth/user-not-found).') {
         showError('Usuário não encontrado, faça seu cadastro na plataforma!')
       } else if (e?.message === 'Firebase: Error (auth/wrong-password).') {
