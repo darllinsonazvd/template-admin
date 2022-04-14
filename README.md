@@ -30,6 +30,10 @@ Bibliotecas
 - [Google Firebase](https://firebase.google.com/)
 - [Google Fonts](https://fonts.google.com/)
 
+Utilitários
+
+- [Heroicons](https://heroicons.com/)
+
 ## 💻 Projeto
 
 Aplicação com intuito de fazer a administração de uma empresa, desenvolvida utilizando ReactJS e Next.js.
